@@ -17,7 +17,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   var appBarColor = Colors.red;
   var bgColor = Colors.white;
-  var secondaryColor = false;
+  var secondaryColor = true;
 
   @override
   Widget build(BuildContext context) {

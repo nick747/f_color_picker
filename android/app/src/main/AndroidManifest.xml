@@ -3,7 +3,7 @@
    <application
         android:label="Color Picker"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/colorpickericon">
         <activity
             android:name=".MainActivity"
             android:exported="true"
