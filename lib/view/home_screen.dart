@@ -17,14 +17,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   var appBarColor = Colors.red;
   var bgColor = Colors.white;
-  var secondaryColor = Colors.black;
+  var secondaryColor = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: bgColor,
       appBar:  AppBar(
-        title: const Text('Color Picker'),
+        title: Text('Color Picker', style: TextStyle(color: secondaryColor ? Colors.white : Colors.black),),
         backgroundColor: appBarColor,
         centerTitle: true,
       ),
@@ -33,7 +33,6 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
                 children: [
-                  Text('Color theme: Blue', style: TextStyle(fontSize: 20, color: secondaryColor),),
                   const SizedBox(
                     height: 20,
                   ),
@@ -181,7 +180,6 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: ElevatedButton(
                             onPressed: () {
                               bgColor = white;
-                              secondaryColor = Colors.black;
                               setState(() {});
                             },  
                             child: const Text('Light Theme', style: TextStyle(color: Colors.black),),
@@ -198,7 +196,6 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: ElevatedButton(
                             onPressed: () {
                               bgColor = Color(black);
-                              secondaryColor = Colors.white;
                               setState(() {});
                             },  
                             child: const Text('Dark Theme'),
@@ -209,7 +206,21 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ],
                     ),
-                  )
+                  ),
+                
+                  SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          secondaryColor = !secondaryColor;
+                          setState(() {});
+                        },  
+                        child: const Text('Text Color'),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: appBarColor,
+                        ),
+                      ),
+                    ),
                 ],
               ),
           ),
