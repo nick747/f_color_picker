@@ -27,6 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('Color Picker', style: TextStyle(color: secondaryColor ? Colors.white : Colors.black),),
         backgroundColor: appBarColor,
         centerTitle: true,
+        toolbarHeight: 70, // Set just to see better the difference of the colours, comment to disable
       ),
       body: Center(
           child: Padding(
