@@ -11,8 +11,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+  var black = 0xff363636;
+  var white = Colors.white;
+
   var appBarColor = Colors.red;
   var bgColor = Colors.white;
+  var secondaryColor = Colors.black;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
                 children: [
-                  const Text('Color theme: Blue', style: TextStyle(fontSize: 20),),
+                  Text('Color theme: Blue', style: TextStyle(fontSize: 20, color: secondaryColor),),
                   const SizedBox(
                     height: 20,
                   ),
@@ -165,6 +169,45 @@ class _MyHomePageState extends State<MyHomePage> {
                 
                   const SizedBox(
                     height: 50,
+                  ),
+                
+                  SizedBox(
+                    width: double.infinity,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 3,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              bgColor = white;
+                              secondaryColor = Colors.black;
+                              setState(() {});
+                            },  
+                            child: const Text('Light Theme', style: TextStyle(color: Colors.black),),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        Expanded(
+                          flex: 3,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              bgColor = Color(black);
+                              secondaryColor = Colors.white;
+                              setState(() {});
+                            },  
+                            child: const Text('Dark Theme'),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Color(black),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   )
                 ],
               ),
